@@ -3,6 +3,9 @@ package com.example.duongtainhan555.retrofit.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.duongtainhan555.retrofit.Model.Monan;
 import com.example.duongtainhan555.retrofit.R;
@@ -18,15 +21,16 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity implements XuLyBatDongBo {
-
-    ArrayList<Monan> monans = new ArrayList<>();
+    ListView listView;
     XuLyBatDongBo xuLyBatDongBo;
+    MonanAdapter monanAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ReciveData();
+        listView = findViewById(R.id.listview);
         xuLyBatDongBo = this;
+        ReciveData();
     }
 
     private void ReciveData() {
@@ -38,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements XuLyBatDongBo {
                 ArrayList<Monan> mangmonan = (ArrayList<Monan>) response.body();
                 for(int i=0;i<mangmonan.size();i++)
                 {
-                    Log.d("CCC",mangmonan.get(i).getTenmonan());
+                    Log.d("BBB",mangmonan.get(i).getHinhanh());
                 }
                 xuLyBatDongBo.NhanData(mangmonan);
             }
@@ -52,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements XuLyBatDongBo {
 
     @Override
     public void NhanData(ArrayList<Monan> monans) {
-        Log.d("BBB",monans.size()+"");
+        monanAdapter = new MonanAdapter(MainActivity.this,R.layout.layout_monan,monans);
+        listView.setAdapter(monanAdapter);
     }
 }

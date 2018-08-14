@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@mipmap/ic_launcher"
+        android:id="@+id/imgEating"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/imgEating"
+        android:text="Sushi"
+        android:textSize="40sp"
+        android:textColor="#e60228"
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/txtName"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/imgEating"
+        android:layout_below="@id/txtName"
+        android:text="30000 vnd"
+        android:textSize="30sp"
+        android:textColor="#5d50ed"
+        android:textStyle="italic"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/txtPrice"/>
+
+</RelativeLayout>
